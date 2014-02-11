@@ -12,22 +12,33 @@ import android.gesture.Gesture;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Menu;
+import android.view.WindowManager;
 import android.os.Bundle;
 import android.os.FileObserver;
 import android.provider.MediaStore;
 
 public class MainActivity extends Activity {
+	
+//declare privates
+	
+	
 	protected void onCreate(Bundle savedInstanceState){	
 		super.onCreate(savedInstanceState);
+		//keeps the camera on 
+	    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+	    
 		
 		Card card1 = new Card(this);
-		card1.setText("Hello World!");
-		card1.setFootnote("Footer Note ...");
+		card1.setText("Nice Picture!");
+		card1.setFootnote("Cool! ...");
 		View card1View = card1.toView();
-		
 		setContentView(card1View);
+		takePicture();
 		
 	}
+/**
+ * Boiler plate google code 
+ */
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 	    if (keyCode == KeyEvent.KEYCODE_CAMERA) {
@@ -107,4 +118,7 @@ public class MainActivity extends Activity {
 	        observer.startWatching();
 	    }
 	}
+	/*
+	 * end of boiler plate 
+	 */
 }
