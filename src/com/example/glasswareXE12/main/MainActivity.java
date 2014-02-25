@@ -18,6 +18,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.Menu;
 import android.net.Uri;
+import android.view.WindowManager;
 import android.os.Bundle;
 import android.util.*;
 import android.hardware.Camera.PictureCallback;
@@ -42,9 +43,18 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		//create gesture detector 
 	    //mGestureDetector = createGestureDetector(this);
+//declare privates
+	
+	
+	protected void onCreate(Bundle savedInstanceState){	
+		super.onCreate(savedInstanceState);
+		//keeps the camera on 
+	    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+	    
+		
 		Card card1 = new Card(this);
-		card1.setText("Hello World!");
-		card1.setFootnote("Footer Note ...");
+		card1.setText("Nice Picture!");
+		card1.setFootnote("Cool! ...");
 		View card1View = card1.toView();
 	    //Calling the intent
 		setContentView(card1View);
@@ -52,8 +62,13 @@ public class MainActivity extends Activity {
 //	    Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE); 
 //	    cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, false);       
 //	    startActivityForResult(cameraIntent, 1);
+		setContentView(card1View);
+		takePicture();
 		
 	}
+/**
+ * Boiler plate google code 
+ */
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 	    if (keyCode == KeyEvent.KEYCODE_CAMERA) {
@@ -139,6 +154,7 @@ public class MainActivity extends Activity {
 	        observer.startWatching();
 	    }
 	}
+<<<<<<< HEAD
 	/**
 	 * end of boiler plate 
 	 */
@@ -223,4 +239,9 @@ public class MainActivity extends Activity {
 	    // get an image from the camera
 	    mCamera.takePicture(null, null, mPicture);
 	}
+=======
+	/*
+	 * end of boiler plate 
+	 */
+>>>>>>> 44d759a0a018627f94877b084af46d796c3ceb49
 }
