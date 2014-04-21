@@ -37,14 +37,8 @@ public class MainActivity extends Activity {
 
 	private Camera mCamera;
 	private CameraPreview mPreview;
-	
+    PictureCallback mPicture = null;
 
-	protected void onCreate(Bundle savedInstanceState){	
-		super.onCreate(savedInstanceState);
-		//create gesture detector 
-	    //mGestureDetector = createGestureDetector(this);
-//declare privates
-	
 	
 	protected void onCreate(Bundle savedInstanceState){	
 		super.onCreate(savedInstanceState);
@@ -55,7 +49,7 @@ public class MainActivity extends Activity {
 		Card card1 = new Card(this);
 		card1.setText("Nice Picture!");
 		card1.setFootnote("Cool! ...");
-		View card1View = card1.toView();
+		View card1View = card1.getView();
 	    //Calling the intent
 		setContentView(card1View);
 		takePicture();
@@ -154,7 +148,6 @@ public class MainActivity extends Activity {
 	        observer.startWatching();
 	    }
 	}
-<<<<<<< HEAD
 	/**
 	 * end of boiler plate 
 	 */
@@ -237,11 +230,9 @@ public class MainActivity extends Activity {
 
 	public void takePic() {
 	    // get an image from the camera
-	    mCamera.takePicture(null, null, mPicture);
+		mCamera.takePicture(null, null, mPicture);
 	}
-=======
 	/*
 	 * end of boiler plate 
 	 */
->>>>>>> 44d759a0a018627f94877b084af46d796c3ceb49
 }
